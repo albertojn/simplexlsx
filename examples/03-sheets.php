@@ -15,13 +15,13 @@ if ( $xlsx = SimpleXLSX::parse('countries_and_population.xlsx')) {
 
 	// output worsheet 1
 
-	$dim = $xlsx->dimension();
+	$dim = $xlsx->dimension( 0 );
 	$num_cols = $dim[0];
 	$num_rows = $dim[1];
 
 	echo '<h2>'.$xlsx->sheetName(0).'</h2>';
 	echo '<table border=1>';
-	foreach ( $xlsx->rows( 1 ) as $r ) {
+	foreach ( $xlsx->rows( 0 ) as $r ) {
 		echo '<tr>';
 		for ( $i = 0; $i < $num_cols; $i ++ ) {
 			echo '<td>' . ( ! empty( $r[ $i ] ) ? $r[ $i ] : '&nbsp;' ) . '</td>';
@@ -34,13 +34,13 @@ if ( $xlsx = SimpleXLSX::parse('countries_and_population.xlsx')) {
 
 	// output worsheet 2
 
-	$dim = $xlsx->dimension( 2 );
+	$dim = $xlsx->dimension( 0 );
 	$num_cols = $dim[0];
 	$num_rows = $dim[1];
 
 	echo '<h2>'.$xlsx->sheetName(1).'</h2>';
 	echo '<table border=1>';
-	foreach ( $xlsx->rows( 2 ) as $r ) {
+	foreach ( $xlsx->rows( 1 ) as $r ) {
 		echo '<tr>';
 		for ( $i = 0; $i < $num_cols; $i ++ ) {
 			echo '<td>' . ( ! empty( $r[ $i ] ) ? $r[ $i ] : '&nbsp;' ) . '</td>';
